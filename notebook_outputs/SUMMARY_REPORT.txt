@@ -1,0 +1,44 @@
+====================================================================================================
+LICENSE PLATE DEBLURRING & OCR — OUTPUT SUMMARY
+====================================================================================================
+
+FOLDER CONTENTS:
+----------------------------------------------------------------------------------------------------
+[Step 1A] *_01_hough_fft.png              — Hough angle detection on FFT magnitude
+[Step 1B] *_02_cepstrum.png               — Cepstrum profile for blur length
+[Step 1C] *_03_tps_maps.png               — TPS spatially-varying PSF maps (angle + length)
+[Step 1D] *_04_kernel.png                 — Estimated motion blur kernel visualization
+[Step 2]  *_05_wiener_mask.png            — Wiener rough deblur + character mask
+[Step 2]  *_05b_histogram.png             — Pixel intensity histogram with Otsu threshold
+[Step 3]  *_06_rgb_pipeline.png           — 3-panel: blurred → Wiener → HQS final
+[Step 4]  *_07_4panel_figure.png          — Publication-quality 4-panel figure
+[Output]  *_final_deblurred.png           — Final HQS deblurred image (RGB)
+[Output]  *_wiener_rough.png              — Wiener rough pass (RGB)
+[Output]  *_mask.png                      — Character mask (binary)
+[Output]  *_fft_map.png                   — FFT magnitude map (grayscale)
+[OCR]     ocr_comparison_grid.png         — All 7 images: Route 1 vs Route 2 OCR results
+[Info]    SUMMARY_REPORT.txt              — This file
+
+RESULTS SUMMARY:
+----------------------------------------------------------------------------------------------------
+Total images processed:    8
+Route 1 (deblur→OCR) wins: 3
+Route 2 (direct OCR) wins: 3
+Ties:                      2
+
+OCR RESULTS BY IMAGE:
+----------------------------------------------------------------------------------------------------
+Image        GT            Angle  Length  Route 1              Route 2             
+----------------------------------------------------------------------------------------------------
+img1.png     GJW115A1138      48°     14px  GJW615A1138          GJWS94A108          
+img2.png     TN52U1580         0°     10px  TN52U1S80            52U80               
+img3.png     WB06F9209        44°      8px  W04WWAP1W20W1W       WB00F0200           
+img4.png     DL10CG4693       43°     13px  10CG489              3EVPMPPKM90L10CG4693LLZ
+img5.png     TN45BA1065      152°      9px  717                  YX4S8A106S          
+img6.png     MH14EP4660       73°      5px  MH14EP4660           MK14EP4660          
+img7.png     TN21AU7234       20°      8px  TFZ1AU7Z34           TFZ1AU7Z34          
+img8.png     HR26DA0471       39°     20px  FP8JW344VC9          FRJ6CA4471          
+
+====================================================================================================
+All images saved to: notebook_outputs/
+====================================================================================================
